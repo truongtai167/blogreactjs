@@ -1,23 +1,23 @@
 import logo from './logo.svg';
-import './App.css';
-
+import Index from './component/blog';
+import { Route, Routes } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import notfound from './component/notfound';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div class="jumbotron text-center">
+        <h1>
+          Tai Blog Web
+        </h1>
+        <p>This is my first Web blog using reactjs</p>
+        <a href="/index" class="btn btn-dark btn-lg">All blogs</a>
+      </div>
+      <Routes>
+        <Route path="/index" Component={Index}></Route>
+        <Route path="/" Component={Index}></Route>
+        <Route path="*" Component={notfound}></Route>
+      </Routes>
     </div>
   );
 }
